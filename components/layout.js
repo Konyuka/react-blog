@@ -1,6 +1,11 @@
 import Link from 'next/link'
+import { useRouter } from "next/router";
+
+
 
 export default function Layout({ children }) {
+
+    const router = useRouter();
 
     return(
         <div className="min-h-full">
@@ -14,13 +19,17 @@ export default function Layout({ children }) {
                 </div>
                 <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                     <Link href="/">
-                    <a className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" aria-current="page">
+                    <a 
+                    className={`${router.pathname === "/" ? 'border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" aria-current="page"' : 'border-transparent text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" aria-current="page"'}`}
+                    >
                     Static Props
                     </a>
                     </Link>
 
                     <Link href="/serverside/props">
-                    <a  className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a 
+                    className={`${router.pathname === "/serverside/props" ? 'border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" aria-current="page"' : 'border-transparent text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" aria-current="page"'}`}
+                    >
                     Server Side Props
                     </a>
                     </Link>
