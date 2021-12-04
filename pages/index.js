@@ -4,6 +4,25 @@ import Image from 'next/image'
 import Head from 'next/head'
 
 
+// export async function getServerSideProps({ res }){
+//   try {
+
+//     const result = await fetch(`https://api.themoviedb.org/3/movie/popular`);
+//     const data = await result.json();
+//     console.log(data)
+
+//     return {
+//       props: { data }
+//     };
+//   } catch {
+//     res.statusCode = 404;
+//     return {
+//       props: {}
+//     };
+//   }
+// };
+
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   return {
@@ -61,7 +80,7 @@ export default function Home({ allPostsData }) {
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
               <span>
-                Email
+                Get Latest Movies (Server Side Prop)
               </span>
             </button>
           </div>
@@ -74,7 +93,7 @@ export default function Home({ allPostsData }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              Blog List
+              Blog List (Static Props)
             </h2>
           </div>
         </div>
@@ -104,6 +123,9 @@ export default function Home({ allPostsData }) {
 
 
         </div>
+
+
+        
 
       </div>
     </Layout>
