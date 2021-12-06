@@ -7,9 +7,10 @@ import Head from 'next/head'
 export async function getServerSideProps(res){
   try {
 
-    const result = await fetch(`https://api.themoviedb.org/3/movie/latest?api_key=${process.env.TMDB_TOKEN}&language=en-US`);
+      //   const result = await fetch(`https://api.themoviedb.org/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`);
+      const result = await fetch(`https://api.themoviedb.org/3/movie/latest?api_key=${process.env.TMDB_TOKEN}&language=en-US`);
     const data = await result.json();
-    console.log(data)
+    // console.log(data)
     
     return {
       props: { data }
